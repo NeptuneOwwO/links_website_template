@@ -6,8 +6,28 @@ const profileData = {
     userName: "NeptuneOWO", // Nom affiché sur la page et dans le titre de l'onglet
     email: "neptune@studio.klaynight.fr", // Adresse mail affichée sur la page
     links: [ // Liens affichés sur la page
-        { icon: "https://github.com/NeptuneOwwO", url: "https://github.com/link1", text: "NeptuneOwwO", name: "GitHub" },
-        { icon: "https://tr.rbxcdn.com/30DAY-Avatar-D93F7C7A9A55F82FFEF82E48C6A86E6E-Png/352/352/Avatar/Webp/noFilter", url: "https://www.roblox.com/users/3261357291/profile", text: "Roblox", name: "roblox" },
+        {
+            icon: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            url: "https://github.com/NeptuneOwwO",
+            text: "Mon Github",
+            name: "GitHub",
+            // fontImage: "https://avatars.githubusercontent.com/u/9919?s=200&v=4", // optionnel à venir
+            description: "Ma description personnalisée", // optionnel
+            showDescriptionOnHover: false, // ou false, optionnel
+            showDescription : false, // ou false, optionnel
+            // showImage : true, // ou false, optionnel à venir à venir
+        },
+        {
+            icon: "https://tr.rbxcdn.com/30DAY-Avatar-D93F7C7A9A55F82FFEF82E48C6A86E6E-Png/352/352/Avatar/Webp/noFilter",
+            url: "https://www.roblox.com/users/3261357291/profile",
+            text: "Mon Roblox",
+            name: "Roblox",
+            // fontImage: "https://avatars.githubusercontent.com/u/9919?s=200&v=4", // optionnel à venir
+            description: "Ma description personnalisée", // optionnel
+            showDescriptionOnHover: false, // ou false, optionnel
+            showDescription : false, // ou false, optionnel
+            
+        },
     ],
     // Fond de la page si une liste est utilisée alors le fond sera via les couleurs que vous mettez dedans
     background: ["#FF5733", "#33FF57"], //"https://static.vecteezy.com/ti/vecteur-libre/p1/12697876-motif-geometriquele-continue-noir-et-blanc-motif-repetitif-monochrome-arriere-plan-abstrait-optique-tridimensionnel-avec-cubes-troues-vectoriel.jpg",
@@ -25,8 +45,11 @@ const profileData = {
     socialIcon: [
         {url: "https://discord.gg/5EFfn3pZSt", icon: "Discord"},
     ],
-    
+  
+    statusbar: , // Barre de statut , fontTextColor : 1 = borderColor, 0 = colorBg
+
     neonEnable: 0, // 1 : Enable, 0 : Disable
+
     buttonThemeEnable: 1, // 1 : Enable, 0 : Disable
 
     EnableAnimationArticle: 1, // 1 : Enable, 0 : Disable
@@ -45,7 +68,9 @@ const profileData = {
     delayAnimationButton: 0.1,        // Délai de l'animation en secondes
 
     canvaEnable: 1, // 1 : Enable, 0 : Disable
+
     selectedCanvasIndex: 4,          // Animation du canva (voir ci-dessous)
+
 };
 //      Thèmes      \\
 // 0 : Grey Theme
