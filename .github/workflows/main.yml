@@ -1,63 +1,74 @@
-name: Notify Discord
+name: Discord Notification
 
 on:
   push:
-    branches:
-      - main
   pull_request:
-    types:
-      - opened
-      - closed
-      - reopened
-      - synchronize
   issues:
-    types:
-      - opened
-      - closed
-      - reopened
   release:
-    types:
-      - created
-      - published
+  fork:
+  create:
+  delete:
+  discussion:
+  discussion_comment:
+  issue_comment:
+  pull_request_review:
+  pull_request_review_comment:
+  public:
+  registry_package:
+  repository_dispatch:
+  repository_vulnerability_alert:
+  star:
+  watch:
 
 jobs:
-  notify:
+  notify-discord:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Send notification to Discord
+      - name: Notify Discord with style
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          # Define the message to send based on the event
-          case "${{ github.event_name }}" in
-            push)
-              MESSAGE="📦 Commit pushed: ${{ github.actor }} - ${{ github.sha }}\nMessage: ${{ github.event.head_commit.message }}\nLink: https://github.com/${{ github.repository }}/commit/${{ github.sha }}\nMention: ||<@&1336351854573125763>||"
-              ;;
-            pull_request)
-              case "${{ github.event.action }}" in
-                opened)
-                  MESSAGE="🚀 New PR opened by ${{ github.actor }}: ${{ github.event.pull_request.title }}\nLink: ${{ github.event.pull_request.html_url }}\nMention: ||<@&1336351854573125763>||"
-                  ;;
-                closed|merged)
-                  if [[ "${{ github.event.pull_request.merged }}" == "true" ]]; then
-                    MESSAGE="🔒 PR merged by ${{ github.actor }}: ${{ github.event.pull_request.title }}\nLink: ${{ github.event.pull_request.html_url }}\nMention: ||<@&1336351854573125763>||"
-                  else
-                    MESSAGE="🔒 PR closed by ${{ github.actor }}: ${{ github.event.pull_request.title }}\nLink: ${{ github.event.pull_request.html_url }}\nMention: ||<@&1336351854573125763>||"
-                  fi
-                  ;;
-              esac
-              ;;
-            issues)
-              MESSAGE="📄 Issue ${{ github.event.action }}: ${{ github.event.issue.title }}\nLink: ${{ github.event.issue.html_url }}\nMention: ||<@&1336351854573125763>||"
-              ;;
-            release)
-              MESSAGE="🎉 Release ${{ github.event.release.name }}: ${{ github.event.release.body }}\nLink: ${{ github.event.release.html_url }}\nMention: ||<@&1336351854573125763>||"
-              ;;
-          esac
+          AUTHOR="${GITHUB_ACTOR}"
+          EVENT="${GITHUB_EVENT_NAME}"
+          REPO="${GITHUB_REPOSITORY}"
+          RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          BRANCH="$(echo $GITHUB_REF | sed 's|refs/heads/||')"
+          AVATAR_URL="https://github.com/${AUTHOR}.png"
 
-          # Send the message to Discord via the Webhook
+          EMBED=$(cat << EOF
+          {
+            "embeds": [
+              {
+                "title": "✨ Nouvelle activité GitHub !",
+                "color": 5814783,
+                "author": {
+                  "name": "${AUTHOR}",
+                  "icon_url": "${AVATAR_URL}"
+                },
+                "fields": [
+                  {
+                    "name": "Repository",
+                    "value": "**${REPO}**"
+                  },
+                  {
+                    "name": "Événement",
+                    "value": "\`${EVENT}\`",
+                    "inline": true
+                  },
+                  {
+                    "name": "Branche",
+                    "value": "\`${BRANCH}\`",
+                    "inline": true
+                  }
+                ],
+                "description": "🔗 [Voir l’action GitHub](${RUN_URL})",
+                "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+              }
+            ]
+          }
+          EOF
+          )
+
           curl -X POST -H "Content-Type: application/json" \
             -d "{\"content\": \"$MESSAGE\"}" \
             "${{ secrets.DISCORD_WEBHOOK_URL }}"
