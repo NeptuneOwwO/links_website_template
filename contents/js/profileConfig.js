@@ -3,7 +3,7 @@ const profileData = {
     profileImage: "https://www.nautiljon.com/images/perso/00/57/bachira_meguru_21375.webp", // Image de profil
     profileIcon: "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg", // Icone derrière le profil
     profileSiteText: "", // Nom derrière le profil
-    userName: "NeptuneOWO", // Nom affiché sur la page et dans le titre de l'onglet
+    userName: "Neptune", // Nom affiché sur la page et dans le titre de l'onglet
     email: "neptune@studio.klaynight.fr", // Adresse mail affichée sur la page
     links: [ // Liens affichés sur la page
         { icon: "https://tr.rbxcdn.com/30DAY-Avatar-D93F7C7A9A55F82FFEF82E48C6A86E6E-Png/352/352/Avatar/Webp/noFilter", url: "https://www.roblox.com/users/3261357291/profile", text: "Roblox" },

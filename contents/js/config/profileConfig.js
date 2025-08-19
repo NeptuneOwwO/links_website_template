@@ -1,12 +1,12 @@
 const profileData = {
-    profileLink: "https://discord.gg/uFZXwWdewc", // Lien du profil 
-    profileImage: "https://www.nautiljon.com/images/perso/00/57/bachira_meguru_21375.webp", // Image de profil
+    profileLink: "https://discord.gg/Z6WAchPNn4", // Lien du profil 
+    profileImage: "https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/274e7388d34806d3fc591194a0b41234~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=dcbd61f9&x-expires=1755777600&x-signature=mKRd0JR5q4bpOON%2BSLOG1Kgd4vU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a", // Image de profil
     profileIcon: "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg", // Icone derrière le profil
     profileSiteText: "", // Nom derrière le profil
-    userName: "NeptuneOWO", // Nom affiché sur la page et dans le titre de l'onglet
-    email: "neptune@studio.klaynight.fr", // Adresse mail affichée sur la page
+    userName: "Neptune", // Nom affiché sur la page et dans le titre de l'onglet
+    email: "tancredifarace12@proton.me", // Adresse mail affichée sur la page
     links: [ // Liens affichés sur la page
-        { icon: "https://github.com/NeptuneOwwO", url: "https://github.com/link1", text: "NeptuneOwwO", name: "GitHub" },
+        { icon: "https://github.com/NeptuneOwwO", url: "https://github.com/NeptuneOwwO", text: "NeptuneOwwO", name: "GitHub" },
         { icon: "https://tr.rbxcdn.com/30DAY-Avatar-D93F7C7A9A55F82FFEF82E48C6A86E6E-Png/352/352/Avatar/Webp/noFilter", url: "https://www.roblox.com/users/3261357291/profile", text: "Roblox", name: "roblox" },
     ],
     // Fond de la page si une liste est utilisée alors le fond sera via les couleurs que vous mettez dedans
@@ -18,12 +18,12 @@ const profileData = {
     description: "", // Description affichée sur la page, display: none si vide
     
     labels: [
-        { data: "Developer", color: "#FF6384", fontColor: "#FFFFFF" },
+        { data: "JSP 1", color: "#FF6384", fontColor: "#FFFFFF" },
         { data: "brm5 builder", color: "#4BC0C0", fontColor: "#FFFFFF" },
     ],
 
     socialIcon: [
-        {url: "https://discord.gg/5EFfn3pZSt", icon: "Discord"},
+
     ],
     
     neonEnable: 0, // 1 : Enable, 0 : Disable
