@@ -32,6 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const themeIndex = profileData.selectedThemeIndex % themes.length;
-    footer.innerHTML = `Design with ❤️ by Neptune`;
+    footer.innerHTML = `Design with ❤️ by Klaynight avec le support de neptune`;
     document.body.appendChild(footer);
 });
