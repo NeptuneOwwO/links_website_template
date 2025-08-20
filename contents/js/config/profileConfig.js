@@ -37,7 +37,7 @@ const profileData = {
     
     selectedThemeIndex: 0,                   // Thème sélectionné            (voir ci-dessous)
 
-    selectedAnimationIndex : 0,              // Animation de l'article       (voir ci-dessous)
+    selectedAnimationIndex : 1,              // Animation de l'article       (voir ci-dessous)
     selectedAnimationButtonIndex : 10,       // Animation des boutons        (voir ci-dessous)
     selectedAnimationBackgroundIndex: 0,     // Animation de l'arrière-plan  (voir ci-dessous)
 
